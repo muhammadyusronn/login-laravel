@@ -12,19 +12,29 @@ class C_auth extends Controller
     public function login()
     {
         $data['title'] = 'Login';
-        return view('login-page', $data);
+        return view('backend/login-page', $data);
+    }
+
+    public function proseslogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        $data['title'] = 'Dashboard';
+        return view('backend/dashboard', $data);
     }
 
     public function signup()
     {
         $data['title'] = 'Sign UP';
-        return view('signup-page', $data);
+        return view('backend/signup-page', $data);
     }
 
     public function forgotpass()
     {
         $data['title'] = 'Forgot Password';
-        return view('forgotpass-page', $data);
+        return view('backend/forgotpass-page', $data);
     }
 
     public function forgotpass_mail(Request $request)

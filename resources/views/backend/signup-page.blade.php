@@ -1,10 +1,10 @@
-@extends('layout.sign-template')
+@extends('backend.layout.sign-template')
 @section('content')
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
     <div class="container">        
         <div class="navbar-translate n_logo">
-            <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank">Oreo</a>
+            <a class="navbar-brand" href="{{url('')}}" title="">Go To Website</a>
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -12,7 +12,7 @@
             </button>
         </div>
         <div class="navbar-collapse">
-            <ul class="navbar-nav">            
+            <ul class="navbar-nav">              
                 <li class="nav-item">
                     <a class="nav-link btn btn-white btn-round" href="/login-page">SIGN IN</a>
                 </li>
@@ -26,38 +26,42 @@
     <div class="container">
         <div class="col-md-12 content-center">
             <div class="card-plain">
-                <ul>
-                @if (count($errors) > 0)
-                <div class="alert alert-danger" role="alert">
-                    @foreach ($errors->all() as $err)
-                        {{$err}}                    
-                    @endforeach
-                </div>
-                @endif
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success" role="alert">
-                        <strong>{{$message}}</strong>
-                    </div>
-                @endif
-                </ul>
-                <form class="form" method="post" action="{{url('send-request')}}">
-                    {{ csrf_field() }}
+                <form class="form" method="" action="">
                     <div class="header">
                         <div class="logo-container">
-                            <img src="https://thememakker.com/templates/oreo/html/assets/images/logo.svg" alt="">
+                            <img src="{{asset('resource/assets/images/logo.svg')}}" alt="">
                         </div>
-                        <h5>Forgot Password</h5>
+                        <h5>Sign Up</h5>
+                        <span>Register a new membership</span>
                     </div>
                     <div class="content">                                                
-                        <div class="input-group input-lg">
-                            <input type="text" name="email" class="form-control" placeholder="Enter User Name">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter User Name">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-account-circle"></i>
                             </span>
                         </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Email">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-email"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" placeholder="Password" class="form-control" />
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-lock"></i>
+                            </span>
+                        </div>                        
                     </div>
+                    <div class="checkbox">
+                            <input id="terms" type="checkbox">
+                            <label for="terms">
+                                    I read and agree to the <a href="javascript:void(0);">terms of usage</a>
+                            </label>
+                        </div>
                     <div class="footer text-center">
-                        <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SUBMIT</button>
+                        <a href="index.html" class="btn btn-primary btn-round btn-lg btn-block waves-effect waves-light">SIGN UP</a>                        
                     </div>
                 </form>
             </div>

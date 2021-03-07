@@ -10,6 +10,6 @@ class C_admin extends Controller
     {
         $data['title'] = 'Master';
         $data['sub_title'] = 'Admin';
-        return view('admin-data', $data);
+        return view('backend/admin-data', $data);
     }
 }

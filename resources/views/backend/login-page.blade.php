@@ -1,10 +1,10 @@
-@extends('layout.sign-template')
+@extends('backend.layout.sign-template')
 @section('content')
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
     <div class="container">        
         <div class="navbar-translate n_logo">
-            <a class="navbar-brand" href="javascript:void(0);" title="" target="_blank">Oreo</a>
+            <a class="navbar-brand" href="{{url('')}}" title="">Go To Website</a>
             <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -26,7 +26,16 @@
     <div class="container">
         <div class="col-md-12 content-center">
             <div class="card-plain">
-                <form class="form" method="post" action="#">
+                @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $err)
+                        {{$err}}
+                        <?= '<br>'; ?>                    
+                    @endforeach
+                </div>
+                @endif
+                <form class="form" method="post" action="{{url('login')}}">
+                    {{ csrf_field() }}
                     <div class="header">
                         <div class="logo-container">
                             <img src="https://thememakker.com/templates/oreo/html/assets/images/logo.svg" alt="">
@@ -35,13 +44,13 @@
                     </div>
                     <div class="content">                                                
                         <div class="input-group input-lg">
-                            <input type="text" class="form-control" placeholder="Enter User Name" required>
+                            <input type="text" class="form-control" name="email" placeholder="Enter Email" >
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-account-circle"></i>
                             </span>
                         </div>
                         <div class="input-group input-lg">
-                            <input type="password" placeholder="Password" class="form-control" required />
+                            <input type="password" placeholder="Password" name="password" class="form-control" />
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-lock"></i>
                             </span>
@@ -49,7 +58,6 @@
                     </div>
                     <div class="footer text-center">
                         <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SIGN IN</button>
-                        <h5><a href="/forgotpass-page" class="link">Forgot Password?</a></h5>
                     </div>
                 </form>
             </div>

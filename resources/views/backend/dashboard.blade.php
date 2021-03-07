@@ -1,4 +1,4 @@
-@extends('layout/template')
+@extends('backend/layout/template')
 @section('title','Dashboard')
 @section('container')
 <section class="content home">

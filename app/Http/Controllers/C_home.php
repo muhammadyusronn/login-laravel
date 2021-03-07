@@ -9,6 +9,6 @@ class C_home extends Controller
     public function dashboard()
     {
         $data['title'] = 'Dashboard';
-        return view('dashboard', $data);
+        return view('backend/dashboard', $data);
     }
 }

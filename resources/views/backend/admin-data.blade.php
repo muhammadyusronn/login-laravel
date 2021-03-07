@@ -1,4 +1,4 @@
-@extends('layout/template')
+@extends('backend/layout/template')
 @section('title','Data Admin')
 @section('container')
 <section class="content">

@@ -31,6 +31,6 @@ class SendEmail extends Mailable
     {
 
         return $this->from('learningcyberlabswj@gmail.com', 'tes nama')->subject('Tes Email')
-            ->view('email_template')->with('data', $this->data);
+            ->view('backend/email_template')->with('data', $this->data);
     }
 }
