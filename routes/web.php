@@ -1,18 +1,18 @@
 <?php
 // C Frontend 
-Route::get('/', 'F_home@home');
-Route::get('/about', 'F_home@about');
+Route::get('/', 'Frontend\F_home@home');
+Route::get('/about', 'Frontend\F_home@about');
 
 
 // C backend
 // C Dashboard
-Route::get('/dash', 'C_home@dashboard');
+Route::get('/dash', 'Backend\C_home@dashboard');
 // C Admin
-Route::get('/dash/data-admin', 'C_admin@data_admin');
+Route::get('/dash/data-admin', 'Backend\C_admin@data_admin');
 
 // C Auth
-Route::get('/login-page', 'C_auth@login');
-Route::post('/login', 'C_auth@proseslogin');
-Route::get('/signup-page', 'C_auth@signup');
-Route::get('/forgotpass-page', 'C_auth@forgotpass');
-Route::post('/send-request', 'C_auth@forgotpass_mail');
+Route::get('/login-page', 'Backend\C_auth@login');
+Route::post('/login', 'Backend\C_auth@proseslogin');
+Route::get('/signup-page', 'Backend\C_auth@signup');
+Route::get('/forgotpass-page', 'Backend\C_auth@forgotpass');
+Route::post('/send-request', 'Backend\C_auth@forgotpass_mail');

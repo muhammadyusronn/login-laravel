@@ -58,6 +58,7 @@
                     </div>
                     <div class="footer text-center">
                         <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SIGN IN</button>
+                        <a href="{{url('forgotpass-page')}}" style="color: white">Forgot your password?</a>
                     </div>
                 </form>
             </div>
