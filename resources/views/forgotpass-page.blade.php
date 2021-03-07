@@ -26,7 +26,22 @@
     <div class="container">
         <div class="col-md-12 content-center">
             <div class="card-plain">
-                <form class="form" method="post" action="#">
+                <ul>
+                @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $err)
+                        {{$err}}                    
+                    @endforeach
+                </div>
+                @endif
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success" role="alert">
+                        <strong>{{$message}}</strong>
+                    </div>
+                @endif
+                </ul>
+                <form class="form" method="post" action="{{url('send-request')}}">
+                    {{ csrf_field() }}
                     <div class="header">
                         <div class="logo-container">
                             <img src="https://thememakker.com/templates/oreo/html/assets/images/logo.svg" alt="">
@@ -35,7 +50,7 @@
                     </div>
                     <div class="content">                                                
                         <div class="input-group input-lg">
-                            <input type="text" class="form-control" placeholder="Enter User Name" required>
+                            <input type="text" name="email" class="form-control" placeholder="Enter User Name">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-account-circle"></i>
                             </span>

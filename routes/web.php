@@ -9,3 +9,4 @@ Route::get('/data-admin', 'C_admin@data_admin');
 Route::get('/login-page', 'C_auth@login');
 Route::get('/signup-page', 'C_auth@signup');
 Route::get('/forgotpass-page', 'C_auth@forgotpass');
+Route::post('/send-request', 'C_auth@forgotpass_mail');
