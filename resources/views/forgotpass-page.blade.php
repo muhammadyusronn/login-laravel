@@ -14,7 +14,7 @@
         <div class="navbar-collapse">
             <ul class="navbar-nav">            
                 <li class="nav-item">
-                    <a class="nav-link btn btn-white btn-round" href="/signup-page">SIGN UP</a>
+                    <a class="nav-link btn btn-white btn-round" href="/login-page">SIGN IN</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
                         <div class="logo-container">
                             <img src="https://thememakker.com/templates/oreo/html/assets/images/logo.svg" alt="">
                         </div>
-                        <h5>Log in</h5>
+                        <h5>Forgot Password</h5>
                     </div>
                     <div class="content">                                                
                         <div class="input-group input-lg">
@@ -40,16 +40,9 @@
                                 <i class="zmdi zmdi-account-circle"></i>
                             </span>
                         </div>
-                        <div class="input-group input-lg">
-                            <input type="password" placeholder="Password" class="form-control" required />
-                            <span class="input-group-addon">
-                                <i class="zmdi zmdi-lock"></i>
-                            </span>
-                        </div>
                     </div>
                     <div class="footer text-center">
-                        <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SIGN IN</button>
-                        <h5><a href="/forgotpass-page" class="link">Forgot Password?</a></h5>
+                        <button type="submit" class="btn btn-primary btn-round btn-lg btn-block ">SUBMIT</button>
                     </div>
                 </form>
             </div>
