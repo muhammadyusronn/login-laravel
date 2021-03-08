@@ -26,7 +26,17 @@
     <div class="container">
         <div class="col-md-12 content-center">
             <div class="card-plain">
-                <form class="form" method="" action="">
+                <ul>
+                @if (count($errors) > 0)
+                <div class="alert alert-danger" role="alert">
+                    @foreach ($errors->all() as $err)
+                        {{$err}}                    
+                    @endforeach
+                </div>
+                @endif
+                </ul>
+                <form class="form" method="post" action="{{url('signup')}}">
+                    {{ csrf_field() }}
                     <div class="header">
                         <div class="logo-container">
                             <img src="{{asset('resource/assets/images/logo.svg')}}" alt="">
@@ -36,32 +46,32 @@
                     </div>
                     <div class="content">                                                
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter User Name">
+                            <input type="text" name="name" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  placeholder="Enter User Name" value="{{old('name')}}">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-account-circle"></i>
                             </span>
                         </div>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter Email">
+                            <input type="text" class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" name="email" placeholder="Enter Email" value="{{old('email')}}">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-email"></i>
                             </span>
                         </div>
                         <div class="input-group">
-                            <input type="password" placeholder="Password" class="form-control" />
+                            <input type="password" name="password" placeholder="Password" class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}" />
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-lock"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" name="password_confirmation" placeholder="Password Confirmation" class="form-control {{$errors->has('password_confirmation') ? 'is-invalid' : ''}}" />
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-lock"></i>
                             </span>
                         </div>                        
                     </div>
-                    <div class="checkbox">
-                            <input id="terms" type="checkbox">
-                            <label for="terms">
-                                    I read and agree to the <a href="javascript:void(0);">terms of usage</a>
-                            </label>
-                        </div>
                     <div class="footer text-center">
-                        <a href="index.html" class="btn btn-primary btn-round btn-lg btn-block waves-effect waves-light">SIGN UP</a>                        
+                        <button type="submit" class="btn btn-primary btn-round btn-lg btn-block waves-effect waves-light">SIGN UP</button>                        
                     </div>
                 </form>
             </div>
