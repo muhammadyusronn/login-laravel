@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\User;
 
 class C_auth extends Controller
 {
@@ -33,6 +34,21 @@ class C_auth extends Controller
     {
         $data['title'] = 'Sign UP';
         return view('backend/signup-page', $data);
+    }
+    public function prosessignup(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'email' => ' required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
+        ]);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->passwprd)
+        ]);
+        return redirect('login-page')->with('success', 'registration is successful');
     }
 
     public function forgotpass()
