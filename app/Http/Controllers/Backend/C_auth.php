@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class C_auth extends Controller
 {
@@ -26,8 +27,12 @@ class C_auth extends Controller
             'password' => 'required',
         ]);
         $data['title'] = 'Dashboard';
-        Alert::success('login berhasil!');
-        return redirect('dash');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('dash')->with('success', 'Welcome!');
+        } else {
+            return redirect('login-page')->with('errors', 'Incorrect email or password!');
+        }
     }
 
     public function signup()

@@ -25,15 +25,7 @@
     <div class="page-header-image" style="background-image:url({{asset('resource/assets/images/login.jpg')}})"></div>
     <div class="container">
         <div class="col-md-12 content-center">
-            <div class="card-plain">
-                @if (count($errors) > 0)
-                <div class="alert alert-danger" role="alert">
-                    @foreach ($errors->all() as $err)
-                        {{$err}}
-                        <?= '<br>'; ?>                    
-                    @endforeach
-                </div>
-                @endif
+            <div class="card-plain">     
                 <form class="form" method="post" action="{{url('login')}}">
                     {{ csrf_field() }}
                     <div class="header">
