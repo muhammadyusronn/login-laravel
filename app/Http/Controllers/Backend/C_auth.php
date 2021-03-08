@@ -37,18 +37,19 @@ class C_auth extends Controller
         $data['title'] = 'Forgot Password';
         return view('backend/forgotpass-page', $data);
     }
-
     public function forgotpass_mail(Request $request)
     {
         $this->validate($request, [
+            'name' => 'required',
             'email' => 'required|email',
         ]);
-        $data = array(
-            'email' => $request->email,
-            'name' => 'Tes Nama',
-            'message' => 'tes message',
-        );
-        Mail::to('muhammadyusron733@gmail.com')->send(new SendEmail($data));
-        return back()->with('success', 'Thanks For Contact Us');
+        $to_name = $request->name;
+        $to_email = $request->email;
+        Mail::send("emails.mail", ['name' => $to_name], function ($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                ->subject("Reset Password");
+            $message->from("learningcyberlabswj@gmail.com", "Kampus Indonesia");
+        });
+        return back()->with('success', 'Please cek yout email to reset your password!');
     }
 }

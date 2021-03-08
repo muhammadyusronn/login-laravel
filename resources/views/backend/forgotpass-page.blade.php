@@ -50,9 +50,15 @@
                     </div>
                     <div class="content">                                                
                         <div class="input-group input-lg">
-                            <input type="text" name="email" class="form-control" placeholder="Enter User Name">
+                            <input type="text" name="name" class="form-control" placeholder="Enter Your Name">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-account-circle"></i>
+                            </span>
+                        </div>
+                        <div class="input-group input-lg">
+                            <input type="text" name="email" class="form-control" placeholder="Enter User Name">
+                            <span class="input-group-addon">
+                                <i class="zmdi zmdi-email"></i>
                             </span>
                         </div>
                     </div>
