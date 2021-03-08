@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class C_auth extends Controller
 {
@@ -18,12 +19,14 @@ class C_auth extends Controller
 
     public function proseslogin(Request $request)
     {
-        $this->validate($request, [
+
+        $validator = $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
         $data['title'] = 'Dashboard';
-        return view('backend/dashboard', $data);
+        Alert::success('login berhasil!');
+        return redirect('dash');
     }
 
     public function signup()
@@ -50,6 +53,6 @@ class C_auth extends Controller
                 ->subject("Reset Password");
             $message->from("learningcyberlabswj@gmail.com", "Kampus Indonesia");
         });
-        return back()->with('success', 'Please cek yout email to reset your password!');
+        return redirect('forgotpass-page')->with('success', 'Please check your email to reset your password!');
     }
 }

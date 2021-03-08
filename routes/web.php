@@ -1,4 +1,13 @@
 <?php
+
+use RealRashid\SweetAlert\Facades\Alert;
+
+Route::get('/tes', function () {
+    //
+    Alert::success('hai');
+    return view('welcome');
+});
+
 // C Frontend 
 Route::get('/', 'Frontend\F_home@home');
 Route::get('/about', 'Frontend\F_home@about');

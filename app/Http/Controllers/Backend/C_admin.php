@@ -11,6 +11,6 @@ class C_admin extends Controller
     {
         $data['title'] = 'Master';
         $data['sub_title'] = 'Admin';
-        return view('backend/admin-data', $data);
+        return view('backend/admin-data', $data)->with('success', 'Login Success!');
     }
 }

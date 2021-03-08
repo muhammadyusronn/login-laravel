@@ -45,6 +45,7 @@
 
 <body class="theme-purple authentication sidebar-collapse">
     @yield('content')
+    @include('sweetalert::alert')
 <!-- Jquery Core Js -->
     <script src="{{asset('resource/assets/assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
     <script src="{{asset('resource/assets/assets/bundles/vendorscripts.bundle.js')}}"></script> <!-- slimscroll, waves Scripts Plugin Js -->

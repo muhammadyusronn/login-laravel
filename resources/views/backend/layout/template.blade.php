@@ -158,12 +158,12 @@
                             </div>
                         </li>
                         <li class="header">MAIN</li>
-                        <li> <a href="/" class="<?php if($title=='Dashboard'){ echo 'active'; } ?>"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
+                        <li> <a href="{{url('dash/')}}" class="<?php if($title=='Dashboard'){ echo 'active'; } ?>"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>
                         <li class="<?php if($title=='Master'){ echo 'active open'; } ?>"> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master</span> </a>
                             <ul class="ml-menu">
-                                <li class="<?php if(isset($sub_title) && $sub_title=='Admin'){ echo 'active'; } ?>"><a href="/data-admin">Admin</a>
+                                <li class="<?php if(isset($sub_title) && $sub_title=='Admin'){ echo 'active'; } ?>"><a href="{{url('dash/data-admin')}}">Admin</a>
                                 </li>
-                                <li class=""><a href="{{asset('resource/')}}/dash/pegawai">Pegawai</a>
+                                <li class=""><a href="{{url('dash/pegawai')}}">Pegawai</a>
                                 </li>
                             </ul>
                         </li>
@@ -638,6 +638,8 @@
     </div>
 
     @yield('container')
+    @include('sweetalert::alert')
+
 
     <!-- Jquery Core Js -->
     <script src="{{asset('resource/assets/assets/bundles/libscripts.bundle.js')}}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->

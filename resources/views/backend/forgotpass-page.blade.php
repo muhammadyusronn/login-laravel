@@ -34,11 +34,6 @@
                     @endforeach
                 </div>
                 @endif
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success" role="alert">
-                        <strong>{{$message}}</strong>
-                    </div>
-                @endif
                 </ul>
                 <form class="form" method="post" action="{{url('send-request')}}">
                     {{ csrf_field() }}

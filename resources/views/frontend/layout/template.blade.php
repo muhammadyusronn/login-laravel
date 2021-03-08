@@ -27,11 +27,6 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/custom.css')}}">
-    {{--  Sweet Alert  --}}
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
-    {{--  End Sweet Alert  --}}
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -181,6 +176,7 @@
     <!-- End Top Search -->
 
     @yield('content')
+    @include('sweetalert::alert')
 
     <!-- Start Footer  -->
 <footer>
