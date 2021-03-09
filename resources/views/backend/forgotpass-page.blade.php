@@ -51,7 +51,7 @@
                             </span>
                         </div>
                         <div class="input-group input-lg">
-                            <input type="text" name="email" class="form-control" placeholder="Enter User Name">
+                            <input type="text" name="email" class="form-control" placeholder="Enter Email Name">
                             <span class="input-group-addon">
                                 <i class="zmdi zmdi-email"></i>
                             </span>

@@ -135,7 +135,11 @@
                 </div>
             </li>
             <li class="float-right">
-                <a href="/login-page" onclick="javascrip: return confirm('Anda yakin untuk sign out?');" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+                <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                 <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
             </li>
         </ul>
@@ -163,7 +167,7 @@
                             <ul class="ml-menu">
                                 <li class="<?php if(isset($sub_title) && $sub_title=='Admin'){ echo 'active'; } ?>"><a href="{{url('dash/data-admin')}}">Admin</a>
                                 </li>
-                                <li class=""><a href="{{url('dash/pegawai')}}">Pegawai</a>
+                                <li class=""><a href="#" onclick="javascript: return alert('features are being developed')">Participants</a>
                                 </li>
                             </ul>
                         </li>

@@ -103,7 +103,7 @@
                         <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('about')}}">About Us</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="failed()">Internship</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{url('login-page')}}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('login')}}">Login</a></li>
                         <!-- <li class="dropdown">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                             <ul class="dropdown-menu">
